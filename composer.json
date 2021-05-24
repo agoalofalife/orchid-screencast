@@ -11,7 +11,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "orchid/platform": "^10.3"
+        "orchid/platform": "^10.3",
+        "propaganistas/laravel-phone": "^4.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

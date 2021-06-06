@@ -24,19 +24,20 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' =>  ['phone:RU', 'required'],
-            'name' => ['required'],
-            'last_name' => ['required'],
-            'email' => ['required', 'email'],
-            'birthday' => ['required', 'date_format:Y-m-d'],
-            'service_id' => ['exists:services,id', 'required']
+            'client.phone' =>  ['sometimes', 'phone:RU', 'required'],
+            'client.name' => ['required'],
+            'client.last_name' => ['required'],
+            'client.email' => ['required', 'email'],
+            'client.birthday' => ['required', 'date_format:Y-m-d'],
+            'client.service_id' => ['exists:services,id', 'required'],
+            'client.assessment' => ['required']
         ];
     }
 
     public function messages(): array
     {
         return  [
-          'phone.phone' => 'Номер телефона в неверном формате'
+          'client.phone.phone' => 'Номер телефона в неверном формате'
         ];
     }
 }

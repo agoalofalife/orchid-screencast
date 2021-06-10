@@ -29,7 +29,8 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Клиенты')
             ->icon('user')
             ->route('platform.clients')
-            ->title('Клиенты'),
+            ->title('Клиенты')
+            ->permission('platform.clients'),
 //            Menu::make('Example screen')
 //                ->icon('monitor')
 //                ->route('platform.example')
@@ -85,16 +86,16 @@ class PlatformProvider extends OrchidServiceProvider
 //                    return Dashboard::version();
 //                }, Color::DARK()),
 //
-//            Menu::make(__('Users'))
-//                ->icon('user')
-//                ->route('platform.systems.users')
-//                ->permission('platform.systems.users')
-//                ->title(__('Access rights')),
-//
-//            Menu::make(__('Roles'))
-//                ->icon('lock')
-//                ->route('platform.systems.roles')
-//                ->permission('platform.systems.roles'),
+            Menu::make(__('Users'))
+                ->icon('user')
+                ->route('platform.systems.users')
+                ->permission('platform.systems.users')
+                ->title(__('Access rights')),
+
+            Menu::make(__('Roles'))
+                ->icon('lock')
+                ->route('platform.systems.roles')
+                ->permission('platform.systems.roles'),
         ];
     }
 
@@ -119,6 +120,10 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users')),
+            ItemPermission::group('Отзывы клиентов')
+                ->addPermission('platform.clients', 'Клиенты')
+                ->addPermission('platform.analytics', 'Аналитика')
+                ->addPermission('platform.reports', 'Отчеты')
         ];
     }
 

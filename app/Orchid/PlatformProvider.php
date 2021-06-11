@@ -2,6 +2,7 @@
 
 namespace App\Orchid;
 
+use Illuminate\Support\Facades\Auth;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
@@ -31,6 +32,10 @@ class PlatformProvider extends OrchidServiceProvider
             ->route('platform.clients')
             ->title('Клиенты')
             ->permission('platform.clients'),
+            Menu::make('Аналитика и отчеты')
+            ->icon('chart')
+            ->route('platform.analyticsAndReports')
+            ->canSee(Auth::user()->hasAccess('platform.analytics') && Auth::user()->hasAccess('platform.reports')),
 //            Menu::make('Example screen')
 //                ->icon('monitor')
 //                ->route('platform.example')

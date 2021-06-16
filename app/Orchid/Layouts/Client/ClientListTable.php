@@ -31,7 +31,7 @@ class ClientListTable extends Table
         return [
             TD::make('phone', 'Телефон')->width('150px')->cantHide()->canSee($this->isWorkTime())->filter(TD::FILTER_TEXT),
             TD::make('status', 'Статус')->render(function (Client $client) {
-                return $client->status === 'interviewed' ? 'Опрошен' : 'Не опрошен';
+                return Client::STATUS[$client->status];
             })->width('150px')->popover('Статус по результатам работы оператора')->sort(),
             TD::make('email', 'Email'),
             TD::make('assessment', 'Оценка')->width('200px')->align(TD::ALIGN_RIGHT),

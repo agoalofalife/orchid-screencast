@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Orchid\Filters\Filterable;
 use Orchid\Metrics\Chartable;
 use Orchid\Screen\AsSource;
-use Propaganistas\LaravelPhone\PhoneNumber;
 
 class Client extends Model
 {
@@ -25,8 +25,18 @@ class Client extends Model
         'phone'
     ];
 
+    public const STATUS = [
+        'interviewed' => 'Опрошен',
+        'not_interviewed' => 'Не опрошен'
+    ];
+
     public function setPhoneAttribute($phoneCandidate)
     {
-        $this->attributes['phone'] =  str_replace('+', '', PhoneNumber::make($phoneCandidate, 'RU')->formatE164());
+        $this->attributes['phone'] =  make_phone_normalized($phoneCandidate);
+    }
+
+    public function service(): BelongsTo
+    {
+        return $this->belongsTo(Service::class);
     }
 }

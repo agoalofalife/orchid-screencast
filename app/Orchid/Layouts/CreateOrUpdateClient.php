@@ -3,6 +3,7 @@
 namespace App\Orchid\Layouts;
 
 use App\Models\Service;
+use App\Orchid\Fields\Rate;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\DateTimer;
 use Orchid\Screen\Fields\Group;
@@ -44,7 +45,11 @@ class CreateOrUpdateClient extends Rows
                 'Хорошо' => 'Хорошо',
                 'Удовлетворительно' => 'Удовлетворительно',
                 'Отвратительно' => 'Отвратительно'
-            ])->help('Реакция на оказанную услугу')->empty('Не известно', 'Не известно')
+            ])->help('Реакция на оказанную услугу')->empty('Не известно', 'Не известно'),
+//            Rate::make('client.rate')
+//                ->count(4)
+//                ->title('Указать рейтинг')
+//                ->help('Выберете кол-во звезд')
         ];
     }
 }

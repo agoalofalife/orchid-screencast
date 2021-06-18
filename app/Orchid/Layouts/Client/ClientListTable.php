@@ -3,6 +3,7 @@
 namespace App\Orchid\Layouts\Client;
 
 use App\Models\Client;
+use App\Orchid\Fields\Rate;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Orchid\Screen\Actions\ModalToggle;
@@ -34,7 +35,19 @@ class ClientListTable extends Table
                 return Client::STATUS[$client->status];
             })->width('150px')->popover('Статус по результатам работы оператора')->sort(),
             TD::make('email', 'Email'),
-            TD::make('assessment', 'Оценка')->width('200px')->align(TD::ALIGN_RIGHT),
+            TD::make('assessment', 'Оценка')->width('200px')->render(function (Client $client) {
+                $numberAssessment = [
+                    'Отлично' => 4,
+                    'Хорошо' => 3,
+                    'Удовлетворительно' => 2,
+                    'Отвратительно' => 1,
+                    'Не известно' => 0
+                ];
+                return Rate::make('rate')
+                       ->count(4)
+                       ->readonly(true)
+                       ->haveRated($numberAssessment[$client->assessment] ?? 0);
+            }),
             TD::make('created_at', 'Дата создания')->defaultHidden(),
             TD::make('updated_at', 'Дата обновления')->defaultHidden(),
             TD::make('action')->render(function (Client $client) {

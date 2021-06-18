@@ -85,6 +85,7 @@ class ClientListScreen extends Screen
 
     public function createOrUpdateClient(ClientRequest $request): void
     {
+        dd($request->all());
         $clientId = $request->input('client.id');
         Client::updateOrCreate([
             'id' => $clientId

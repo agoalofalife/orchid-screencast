@@ -17,3 +17,6 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 mix.js('resources/js/rater.js', 'public/js');
 mix.js('resources/js/dashboard.js', 'public/js');
+mix.styles([
+    'resources/css/components/progress-board.css'
+], 'public/css/components.css')

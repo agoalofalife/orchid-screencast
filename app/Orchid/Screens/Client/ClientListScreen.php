@@ -6,20 +6,11 @@ namespace App\Orchid\Screens\Client;
 
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
-use App\Models\Service;
 use App\Orchid\Layouts\Client\ClientListTable;
 use App\Orchid\Layouts\CreateOrUpdateClient;
 use App\View\Components\ProgressBoard;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\In;
 use Orchid\Screen\Actions\ModalToggle;
-use Orchid\Screen\Fields\DateTimer;
-use Orchid\Screen\Fields\Group;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Range;
-use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
@@ -58,7 +49,7 @@ class ClientListScreen extends Screen
         $countToday = $interviewedClients->filter(function ($client) {
             return $client->updated_at->toDateString() === Carbon::now()->toDateString();
         })->count();
-        $progressDay = $countToday > 0 ? ($countToday - $countYesterday) / $countYesterday * 100 : 0;
+        $progressDay = $countToday > 0 ? ($countToday - $countYesterday) / ($countYesterday > 0 ? $countYesterday : 1) * 100 : 0;
 
         return [
             'clients' => Client::filters()->defaultSort('status', 'desc')->paginate(10),
@@ -98,6 +89,7 @@ class ClientListScreen extends Screen
 
     public function asyncGetClient(Client $client): array
     {
+        $client->load('invoice');
         return [
           'client' => $client
         ];
@@ -110,7 +102,8 @@ class ClientListScreen extends Screen
         Client::updateOrCreate([
             'id' => $clientId
         ], array_merge($request->validated()['client'], [
-            'status' => 'interviewed'
+            'status' => 'interviewed',
+            'invoice_id' => array_shift($request->validated()['client']['invoice_id'])
         ]));
 
         is_null($clientId) ? Toast::info('Клиент создан') : Toast::info('Клиент обновлен');

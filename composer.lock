@@ -2075,16 +2075,16 @@
         },
         {
             "name": "orchid/platform",
-            "version": "10.5.1",
+            "version": "10.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchidsoftware/platform.git",
-                "reference": "0cc0bb9bec0ad06ba9764ffcb5fd35e0448257b5"
+                "reference": "07e0e3e51fee0d5e8b7c831f1fd15165ab3e2c95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/0cc0bb9bec0ad06ba9764ffcb5fd35e0448257b5",
-                "reference": "0cc0bb9bec0ad06ba9764ffcb5fd35e0448257b5",
+                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/07e0e3e51fee0d5e8b7c831f1fd15165ab3e2c95",
+                "reference": "07e0e3e51fee0d5e8b7c831f1fd15165ab3e2c95",
                 "shasum": ""
             },
             "require": {
@@ -2176,7 +2176,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2021-06-04T12:41:26+00:00"
+            "time": "2021-06-23T21:18:48+00:00"
         },
         {
             "name": "phpoption/phpoption",

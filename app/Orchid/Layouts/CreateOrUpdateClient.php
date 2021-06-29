@@ -3,13 +3,13 @@
 namespace App\Orchid\Layouts;
 
 use App\Models\Service;
-use App\Orchid\Fields\Rate;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\DateTimer;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Layouts\Rows;
 
 class CreateOrUpdateClient extends Rows
@@ -46,6 +46,12 @@ class CreateOrUpdateClient extends Rows
                 'Удовлетворительно' => 'Удовлетворительно',
                 'Отвратительно' => 'Отвратительно'
             ])->help('Реакция на оказанную услугу')->empty('Не известно', 'Не известно'),
+            Upload::make('client.invoice_id')
+                ->maxFiles(1)
+                ->acceptedFiles('.xls, .xlsx')
+                ->storage('clients_invoices')
+                ->title('Загрузить накладную')
+                ->multiple(false)
 //            Rate::make('client.rate')
 //                ->count(4)
 //                ->title('Указать рейтинг')

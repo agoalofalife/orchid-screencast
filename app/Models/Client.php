@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Metrics\Chartable;
 use Orchid\Screen\AsSource;
@@ -15,8 +17,9 @@ class Client extends Model
     use HasFactory;
     use AsSource;
     use Filterable;
+    use Attachable;
 
-    protected $fillable = ['phone', 'name', 'last_name', 'status', 'email', 'birthday', 'service_id', 'assessment'];
+    protected $fillable = ['phone', 'name', 'last_name', 'status', 'email', 'birthday', 'service_id', 'assessment', 'invoice_id'];
 
     protected $allowedSorts = [
         'status'
@@ -38,5 +41,10 @@ class Client extends Model
     public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class);
+    }
+
+    public function invoice()
+    {
+        return $this->hasOne(Attachment::class, 'id', 'invoice_id');
     }
 }

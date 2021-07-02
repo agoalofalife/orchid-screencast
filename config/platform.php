@@ -109,8 +109,11 @@ return [
     */
 
     'resource' => [
-        'stylesheets' => ['/css/components.css'],
-        'scripts'     => [],
+        'stylesheets' => [
+            '/css/components.css',
+            'https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css'
+        ],
+        'scripts'     => ['https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js'],
     ],
 
     /*

@@ -6,11 +6,14 @@ namespace App\Orchid\Screens\Client;
 
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
+use App\Orchid\Filters\StatusFilter;
 use App\Orchid\Layouts\Client\ClientListTable;
 use App\Orchid\Layouts\CreateOrUpdateClient;
+use App\Orchid\Layouts\OperatorSelection;
 use App\View\Components\ProgressBoard;
 use Carbon\Carbon;
 use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Layouts\Selection;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
@@ -52,7 +55,7 @@ class ClientListScreen extends Screen
         $progressDay = $countToday > 0 ? ($countToday - $countYesterday) / ($countYesterday > 0 ? $countYesterday : 1) * 100 : 0;
 
         return [
-            'clients' => Client::filters()->defaultSort('status', 'desc')->paginate(10),
+            'clients' => Client::filtersApplySelection(OperatorSelection::class)->filters()->defaultSort('status', 'desc')->paginate(10),
             'title'   => 'Результат выполненной работы',
             'percent' => $progressDay,
             'mainDigit' => $interviewedClients->count(),
@@ -80,6 +83,7 @@ class ClientListScreen extends Screen
     public function layout(): array
     {
         return [
+            OperatorSelection::class,
             Layout::component(ProgressBoard::class),
             ClientListTable::class,
             Layout::modal('createClient', CreateOrUpdateClient::class)->title('Создание клиента')->applyButton('Создать'),

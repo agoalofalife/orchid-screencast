@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $dashboard->registerResource('scripts', '/js/rater.js');
         $dashboard->registerResource('scripts', '/js/dashboard.js');
+        Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\Models\User::class);
     }
 }

@@ -16,7 +16,7 @@ class CreateClientsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('phone', 20)->comment('Номер телефона');
-            $table->enum('status', ['interviewed', 'not_interviewed'])->comment('Cтатус')->default('not_interviewedwe');
+            $table->enum('status', ['interviewed', 'not_interviewed'])->comment('Cтатус')->default('not_interviewed');
             $table->string('name')->nullable()->comment('Имя');
             $table->string('last_name')->nullable()->comment('Фамилия');
             $table->string('email')->unique()->nullable();

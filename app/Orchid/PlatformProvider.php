@@ -34,7 +34,8 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Аналитика и отчеты')
             ->icon('chart')
             ->route('platform.analyticsAndReports')
-            ->canSee(Auth::user()->hasAccess('platform.analytics') && Auth::user()->hasAccess('platform.reports')),
+            ->permission(['platform.analytics', 'platform.reports']),
+//            ->canSee(Auth::user()->hasAccess('platform.analytics') && Auth::user()->hasAccess('platform.reports')),
 //            Menu::make('Example screen')
 //                ->icon('monitor')
 //                ->route('platform.example')

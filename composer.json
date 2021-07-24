@@ -12,7 +12,8 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "orchid/platform": "dev-master",
-        "propaganistas/laravel-phone": "^4.3"
+        "propaganistas/laravel-phone": "^4.3",
+        "agoalofalife/orchid-fields": "dev-main"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -22,10 +23,15 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
     },
-    "repositories": [{
+    "repositories": [
+        {
         "type": "path",
         "url": "./packages/orchid/platform"
-    }
+    },
+        {
+            "type": "path",
+            "url": "./packages/agoalofalife/orchid-fields"
+        }
     ],
     "autoload": {
         "psr-4": {

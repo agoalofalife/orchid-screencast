@@ -2,7 +2,7 @@
 
 namespace App\Orchid\Filters;
 
-use App\Orchid\Fields\Range;
+use agoalofalife\Orchid\Fields\Range;
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Filters\Filter;
 use Orchid\Screen\Field;

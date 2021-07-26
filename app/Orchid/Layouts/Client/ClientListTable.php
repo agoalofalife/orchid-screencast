@@ -2,8 +2,8 @@
 
 namespace App\Orchid\Layouts\Client;
 
+use agoalofalife\Orchid\Fields\Rate;
 use App\Models\Client;
-use App\Orchid\Fields\Rate;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Orchid\Screen\Actions\ModalToggle;

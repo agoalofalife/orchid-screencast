@@ -14,5 +14,9 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "laravel": "0.0.1",
+        "mix": "0.0.1"
     }
 }

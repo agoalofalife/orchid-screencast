@@ -11,9 +11,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "orchid/platform": "dev-master",
+        "orchid/platform": "^10.11",
         "propaganistas/laravel-phone": "^4.3",
-        "agoalofalife/orchid-fields": "dev-main"
+        "agoalofalife/orchid-fields": "1.0.*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -23,16 +23,6 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
     },
-    "repositories": [
-        {
-        "type": "path",
-        "url": "./packages/orchid/platform"
-    },
-        {
-            "type": "path",
-            "url": "./packages/agoalofalife/orchid-fields"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",

@@ -4,18 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7422825e3b4ad97d8314d02780da5461",
+    "content-hash": "db8d57012d4ecc66f86e192688c21a2f",
     "packages": [
         {
             "name": "agoalofalife/orchid-fields",
-            "version": "dev-main",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agoalofalife/orchid-fields.git",
+                "reference": "5be5dea7ae49b49824b5dfa4d02163fa0c33d7cb"
+            },
             "dist": {
-                "type": "path",
-                "url": "./packages/agoalofalife/orchid-fields",
-                "reference": "ca25091a27fb5fbf81f985cd50fc5af8617a03e4"
+                "type": "zip",
+                "url": "https://api.github.com/repos/agoalofalife/orchid-fields/zipball/5be5dea7ae49b49824b5dfa4d02163fa0c33d7cb",
+                "reference": "5be5dea7ae49b49824b5dfa4d02163fa0c33d7cb",
+                "shasum": ""
             },
             "require": {
-                "orchid/platform": "dev-master"
+                "orchid/platform": "^10.11"
             },
             "type": "library",
             "extra": {
@@ -30,6 +36,7 @@
                     "agoalofalife\\Orchid\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -39,9 +46,11 @@
                     "email": "agoalofalife@gmail.com"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/agoalofalife/orchid-fields/issues",
+                "source": "https://github.com/agoalofalife/orchid-fields/tree/v1.0.0"
+            },
+            "time": "2021-07-26T11:35:28+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -2430,11 +2439,17 @@
         },
         {
             "name": "orchid/platform",
-            "version": "dev-master",
+            "version": "10.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orchidsoftware/platform.git",
+                "reference": "48520c89457e61325aa470149a628d6268c31bd1"
+            },
             "dist": {
-                "type": "path",
-                "url": "./packages/orchid/platform",
-                "reference": "76d4338ecc089a0999a437c1da9adf6577d3cbec"
+                "type": "zip",
+                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/48520c89457e61325aa470149a628d6268c31bd1",
+                "reference": "48520c89457e61325aa470149a628d6268c31bd1",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -2488,14 +2503,7 @@
                     "src/Support/helpers.php"
                 ]
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Orchid\\Platform\\Database\\Factories\\": "database/factories/",
-                    "Orchid\\Platform\\Database\\Seeders\\": "database/seeders/",
-                    "Orchid\\Tests\\": "tests/",
-                    "App\\": "stubs/app/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2521,20 +2529,18 @@
                 "rad"
             ],
             "support": {
-                "issues": "https://github.com/orchidsoftware/platform/issues",
-                "source": "https://github.com/orchidsoftware/platform",
                 "docs": "https://orchid.software/en/docs",
-                "email": "bliz48rus@gmail.com"
+                "email": "bliz48rus@gmail.com",
+                "issues": "https://github.com/orchidsoftware/platform/issues",
+                "source": "https://github.com/orchidsoftware/platform"
             },
             "funding": [
                 {
-                    "type": "opencollective",
-                    "url": "https://opencollective.com/orchid"
+                    "url": "https://opencollective.com/orchid",
+                    "type": "opencollective"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "time": "2021-07-25T16:39:36+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -8478,10 +8484,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "orchid/platform": 20,
-        "agoalofalife/orchid-fields": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

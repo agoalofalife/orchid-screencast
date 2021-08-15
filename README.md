@@ -13,7 +13,6 @@
 | Orchid   | 10.3   |
 | Php      | 8      |
 
-Php 8
 ### [Библиотека](https://github.com/agoalofalife/orchid-fields) с дополнительными полями из видео курса
 
 | Название урока                  | Ссылка                       |

@@ -1,5 +1,11 @@
 ## Orchid Screencast
 
+
+<a href="https://raw.githubusercontent.com/agoalofalife/orchid-screencast/master/.github/IMAGES/promo.png">
+  <img src="https://raw.githubusercontent.com/agoalofalife/orchid-screencast/master/.github/IMAGES/promo.png" alt="Laravel Orchid Platform Screencast" align="center" />
+</a>
+
+
 # Версии и зависимости
 
 Mysql 8

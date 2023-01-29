@@ -13,6 +13,56 @@
 | Orchid   | 10.3   |
 | Php      | 8      |
 
+### Как установить(развернуть у себя)?
+#### Стянуть репозиторий
+```shell
+git clone https://github.com/agoalofalife/orchid-screencast.git
+
+#or
+
+git clone git@github.com:agoalofalife/orchid-screencast.git
+```
+
+#### Установить зависимости
+```shell
+composer install
+```
+
+#### Скопировать файл окружения
+```shell
+cp .env.example .env
+```
+#### Сгенерировать ключ
+```shell
+php artisan key:generate
+```
+#### Поменять конфигурацию базы данных - на ту которая у вас 
+
+```shell
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=orchid-screencasts
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+#### Накатить схему базы
+```shell
+php artisan migrate
+```
+
+#### Заполнить данными
+
+```shell
+php artisan db:seed
+```
+
+#### Поднять сервер
+```shell
+php artisan serve
+```
+
 ### [Библиотека](https://github.com/agoalofalife/orchid-fields) с дополнительными полями из видео курса
 
 | Название урока                  | Ссылка                       |
